@@ -1,0 +1,1142 @@
+Timing Report Max Delay Analysis
+
+SmartTime Version v11.9
+Microsemi Corporation - Microsemi Libero Software Release v11.9 (Version 11.9.0.4)
+Date: Tue Dec 10 00:16:36 2019
+
+
+Design: CarController
+Family: SmartFusion
+Die: A2F200M3F
+Package: 484 FBGA
+Temperature Range: 0 - 85 C
+Voltage Range: 1.425 - 1.575 V
+Speed Grade: STD
+Design State: Post-Layout
+Data source: Silicon verified
+Min Operating Conditions: BEST - 1.575 V - 0 C
+Max Operating Conditions: WORST - 1.425 V - 85 C
+Using Enhanced Min Delay Analysis
+Scenario for Timing Analysis: Primary
+
+
+-----------------------------------------------------
+SUMMARY
+
+Clock Domain:               mss_aclk
+Period (ns):                N/A
+Frequency (MHz):            N/A
+Required Period (ns):       10.000
+Required Frequency (MHz):   100.000
+External Setup (ns):        N/A
+Max Clock-To-Out (ns):      N/A
+
+Clock Domain:               mss_fabric_interface_clock
+Period (ns):                8.157
+Frequency (MHz):            122.594
+Required Period (ns):       10.000
+Required Frequency (MHz):   100.000
+External Setup (ns):        N/A
+Max Clock-To-Out (ns):      N/A
+
+Clock Domain:               mss_pclk1
+Period (ns):                N/A
+Frequency (MHz):            N/A
+Required Period (ns):       10.000
+Required Frequency (MHz):   100.000
+External Setup (ns):        N/A
+Max Clock-To-Out (ns):      N/A
+
+Clock Domain:               mss_ccc_gla1
+Period (ns):                19.880
+Frequency (MHz):            50.302
+Required Period (ns):       10.000
+Required Frequency (MHz):   100.000
+External Setup (ns):        N/A
+Max Clock-To-Out (ns):      11.977
+
+Clock Domain:               mss_ccc_gla0
+Period (ns):                12.500
+Frequency (MHz):            80.000
+Required Period (ns):       10.000
+Required Frequency (MHz):   100.000
+External Setup (ns):        -4.814
+Max Clock-To-Out (ns):      13.801
+
+Clock Domain:               smartfusionmss_0/MSS_CCC_0/I_RCOSC:CLKOUT
+Period (ns):                N/A
+Frequency (MHz):            N/A
+Required Period (ns):       10.000
+Required Frequency (MHz):   100.000
+External Setup (ns):        N/A
+Max Clock-To-Out (ns):      N/A
+
+                            Input to Output
+Max Delay (ns):             N/A
+
+END SUMMARY
+-----------------------------------------------------
+
+Clock Domain mss_aclk
+
+SET Register to Register
+
+No Path
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Setup
+
+No Path
+
+END SET External Setup
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Recovery
+
+No Path
+
+END SET External Recovery
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Clock Domain mss_fabric_interface_clock
+
+SET Register to Register
+
+Path 1
+  From:                  smartfusionmss_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                    smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0]
+  Delay (ns):            10.394
+  Slack (ns):            1.843
+  Arrival (ns):          13.949
+  Required (ns):         15.792
+  Setup (ns):            -2.237
+  Minimum Period (ns):   8.157
+
+
+Expanded Path 1
+  From: smartfusionmss_0/MSS_ADLIB_INST/U_CORE:GLB
+  To: smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0]
+  data required time                             15.792
+  data arrival time                          -   13.949
+  slack                                          1.843
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        mss_fabric_interface_clock
+               +     0.000          Clock source
+  0.000                        smartfusionmss_0/MSS_ADLIB_INST/U_CORE:GLB (r)
+               +     3.555          Clock generation
+  3.555
+               +     3.805          cell: ADLIB:MSS_APB_IP
+  7.360                        smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSPADDR[8] (r)
+               +     0.125          net: smartfusionmss_0/MSS_ADLIB_INST/MSSPADDR[8]INT_NET
+  7.485                        smartfusionmss_0/MSS_ADLIB_INST/U_32:PIN3INT (r)
+               +     0.086          cell: ADLIB:MSS_IF
+  7.571                        smartfusionmss_0/MSS_ADLIB_INST/U_32:PIN3 (r)
+               +     0.330          net: CoreAPB3_0_APBmslave0_PADDR[8]
+  7.901                        CoreAPB3_0/CAPB3l0OI_3_1[0]:A (r)
+               +     0.331          cell: ADLIB:NOR2
+  8.232                        CoreAPB3_0/CAPB3l0OI_3_1[0]:Y (f)
+               +     0.339          net: CoreAPB3_0/CAPB3l0OI_3_1[0]
+  8.571                        CoreAPB3_0/CAPB3l0OI_3[0]:C (f)
+               +     0.584          cell: ADLIB:AND3B
+  9.155                        CoreAPB3_0/CAPB3l0OI_3[0]:Y (f)
+               +     0.872          net: CoreAPB3_0_APBmslave0_PSELx_3
+  10.027                       CoreAPB3_0/CAPB3l0OI[0]:B (f)
+               +     0.571          cell: ADLIB:NOR2B
+  10.598                       CoreAPB3_0/CAPB3l0OI[0]:Y (f)
+               +     0.368          net: CoreAPB3_0_APBmslave0_PSELx
+  10.966                       CoreAPB3_0/CAPB3IIII/PRDATA_0:B (f)
+               +     0.574          cell: ADLIB:NOR2B
+  11.540                       CoreAPB3_0/CAPB3IIII/PRDATA_0:Y (f)
+               +     1.835          net: smartfusionmss_0_MSS_MASTER_APB_PRDATA[0]
+  13.375                       smartfusionmss_0/MSS_ADLIB_INST/U_36:PIN6 (f)
+               +     0.174          cell: ADLIB:MSS_IF
+  13.549                       smartfusionmss_0/MSS_ADLIB_INST/U_36:PIN6INT (f)
+               +     0.400          net: smartfusionmss_0/MSS_ADLIB_INST/MSSPRDATA[0]INT_NET
+  13.949                       smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0] (f)
+                                    
+  13.949                       data arrival time
+  ________________________________________________________
+  Data required time calculation
+  10.000                       mss_fabric_interface_clock
+               +     0.000          Clock source
+  10.000                       smartfusionmss_0/MSS_ADLIB_INST/U_CORE:GLB (r)
+               +     3.555          Clock generation
+  13.555
+               -    -2.237          Library setup time: ADLIB:MSS_APB_IP
+  15.792                       smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0]
+                                    
+  15.792                       data required time
+
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Setup
+
+No Path
+
+END SET External Setup
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Recovery
+
+No Path
+
+END SET External Recovery
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+SET mss_ccc_gla1 to mss_fabric_interface_clock
+
+Path 1
+  From:                  hbridgecontroller_0/PRDATA_1[0]:CLK
+  To:                    smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0]
+  Delay (ns):            4.882
+  Slack (ns):            5.692
+  Arrival (ns):          10.100
+  Required (ns):         15.792
+  Setup (ns):            -2.237
+
+
+Expanded Path 1
+  From: hbridgecontroller_0/PRDATA_1[0]:CLK
+  To: smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0]
+  data required time                             15.792
+  data arrival time                          -   10.100
+  slack                                          5.692
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        mss_ccc_gla1
+               +     0.000          Clock source
+  0.000                        smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA (r)
+               +     4.630          Clock generation
+  4.630
+               +     0.000          net: smartfusionmss_0/MSS_CCC_0/I_MSSCCC/GLA_INT
+  4.630                        smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
+               +     0.000          cell: ADLIB:MSS_CCC_GL_IF
+  4.630                        smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
+               +     0.588          net: FAB_CLK
+  5.218                        hbridgecontroller_0/PRDATA_1[0]:CLK (r)
+               +     0.671          cell: ADLIB:DFN1E0
+  5.889                        hbridgecontroller_0/PRDATA_1[0]:Q (f)
+               +     1.451          net: CoreAPB3_0_APBmslave0_PRDATA[0]
+  7.340                        CoreAPB3_0/CAPB3IIII/PRDATA_0:A (f)
+               +     0.351          cell: ADLIB:NOR2B
+  7.691                        CoreAPB3_0/CAPB3IIII/PRDATA_0:Y (f)
+               +     1.835          net: smartfusionmss_0_MSS_MASTER_APB_PRDATA[0]
+  9.526                        smartfusionmss_0/MSS_ADLIB_INST/U_36:PIN6 (f)
+               +     0.174          cell: ADLIB:MSS_IF
+  9.700                        smartfusionmss_0/MSS_ADLIB_INST/U_36:PIN6INT (f)
+               +     0.400          net: smartfusionmss_0/MSS_ADLIB_INST/MSSPRDATA[0]INT_NET
+  10.100                       smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0] (f)
+                                    
+  10.100                       data arrival time
+  ________________________________________________________
+  Data required time calculation
+  10.000                       mss_fabric_interface_clock
+               +     0.000          Clock source
+  10.000                       smartfusionmss_0/MSS_ADLIB_INST/U_CORE:GLB (r)
+               +     3.555          Clock generation
+  13.555
+               -    -2.237          Library setup time: ADLIB:MSS_APB_IP
+  15.792                       smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0]
+                                    
+  15.792                       data required time
+
+
+END SET mss_ccc_gla1 to mss_fabric_interface_clock
+
+----------------------------------------------------
+
+Clock Domain mss_pclk1
+
+SET Register to Register
+
+No Path
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Setup
+
+No Path
+
+END SET External Setup
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Recovery
+
+No Path
+
+END SET External Recovery
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Clock Domain mss_ccc_gla1
+
+SET Register to Register
+
+Path 1
+  From:                  hbridgecontroller_0/M2_duty[14]:CLK
+  To:                    hbridgecontroller_0/PRDATA_1[0]:D
+  Delay (ns):            19.353
+  Slack (ns):            -9.880
+  Arrival (ns):          24.608
+  Required (ns):         14.728
+  Setup (ns):            0.490
+  Minimum Period (ns):   19.880
+
+Path 2
+  From:                  hbridgecontroller_0/M2_duty[12]:CLK
+  To:                    hbridgecontroller_0/PRDATA_1[0]:D
+  Delay (ns):            18.422
+  Slack (ns):            -8.927
+  Arrival (ns):          23.655
+  Required (ns):         14.728
+  Setup (ns):            0.490
+  Minimum Period (ns):   18.927
+
+Path 3
+  From:                  hbridgecontroller_0/M2_duty_0[14]:CLK
+  To:                    hbridgecontroller_0/PRDATA_1[0]:D
+  Delay (ns):            18.344
+  Slack (ns):            -8.871
+  Arrival (ns):          23.599
+  Required (ns):         14.728
+  Setup (ns):            0.490
+  Minimum Period (ns):   18.871
+
+Path 4
+  From:                  hbridgecontroller_0/M2_duty_0[15]:CLK
+  To:                    hbridgecontroller_0/PRDATA_1[0]:D
+  Delay (ns):            18.308
+  Slack (ns):            -8.824
+  Arrival (ns):          23.552
+  Required (ns):         14.728
+  Setup (ns):            0.490
+  Minimum Period (ns):   18.824
+
+Path 5
+  From:                  hbridgecontroller_0/M2_duty[15]:CLK
+  To:                    hbridgecontroller_0/PRDATA_1[0]:D
+  Delay (ns):            18.142
+  Slack (ns):            -8.658
+  Arrival (ns):          23.386
+  Required (ns):         14.728
+  Setup (ns):            0.490
+  Minimum Period (ns):   18.658
+
+
+Expanded Path 1
+  From: hbridgecontroller_0/M2_duty[14]:CLK
+  To: hbridgecontroller_0/PRDATA_1[0]:D
+  data required time                             14.728
+  data arrival time                          -   24.608
+  slack                                          -9.880
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        mss_ccc_gla1
+               +     0.000          Clock source
+  0.000                        smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA (r)
+               +     4.630          Clock generation
+  4.630
+               +     0.000          net: smartfusionmss_0/MSS_CCC_0/I_MSSCCC/GLA_INT
+  4.630                        smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
+               +     0.000          cell: ADLIB:MSS_CCC_GL_IF
+  4.630                        smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
+               +     0.625          net: FAB_CLK
+  5.255                        hbridgecontroller_0/M2_duty[14]:CLK (r)
+               +     0.671          cell: ADLIB:DFN1
+  5.926                        hbridgecontroller_0/M2_duty[14]:Q (f)
+               +     3.453          net: hbridgecontroller_0/M2_duty[14]
+  9.379                        hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un95_sum_ADD_20x20_fast_I93_Y_a0:C (f)
+               +     0.604          cell: ADLIB:NOR3
+  9.983                        hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un95_sum_ADD_20x20_fast_I93_Y_a0:Y (r)
+               +     0.432          net: hbridgecontroller_0/ADD_20x20_fast_I93_Y_a0_0_0
+  10.415                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un95_sum_ADD_20x20_fast_I93_Y_0_1:C (r)
+               +     0.596          cell: ADLIB:AO1
+  11.011                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un95_sum_ADD_20x20_fast_I93_Y_0_1:Y (r)
+               +     1.727          net: hbridgecontroller_0/ADD_20x20_fast_I93_Y_0_1
+  12.738                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un95_sum_ADD_20x20_fast_I93_Y_0:A (r)
+               +     0.331          cell: ADLIB:OR2
+  13.069                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un95_sum_ADD_20x20_fast_I93_Y_0:Y (r)
+               +     0.338          net: hbridgecontroller_0/mult1_un95_sum[9]
+  13.407                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un102_sum_ADD_20x20_fast_I94_Y:A (r)
+               +     0.478          cell: ADLIB:XNOR2
+  13.885                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un102_sum_ADD_20x20_fast_I94_Y:Y (r)
+               +     0.863          net: hbridgecontroller_0/mult1_un102_sum[10]
+  14.748                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un109_sum_ADD_20x20_fast_I72_Y:A (r)
+               +     0.422          cell: ADLIB:OR3
+  15.170                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un109_sum_ADD_20x20_fast_I72_Y:Y (r)
+               +     0.296          net: hbridgecontroller_0/N382
+  15.466                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un116_sum_ADD_20x20_fast_I97_Y:C (r)
+               +     1.065          cell: ADLIB:XOR3
+  16.531                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un116_sum_ADD_20x20_fast_I97_Y:Y (r)
+               +     1.639          net: hbridgecontroller_0/mult1_un116_sum[13]
+  18.170                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un123_sum_ADD_20x20_fast_I80_Y_0_tz:A (r)
+               +     0.473          cell: ADLIB:AO1
+  18.643                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un123_sum_ADD_20x20_fast_I80_Y_0_tz:Y (r)
+               +     1.541          net: hbridgecontroller_0/ADD_20x20_fast_I80_Y_0_tz_0
+  20.184                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un123_sum_ADD_20x20_fast_I80_Y:B (r)
+               +     0.516          cell: ADLIB:AO1
+  20.700                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un123_sum_ADD_20x20_fast_I80_Y:Y (r)
+               +     0.306          net: hbridgecontroller_0/N370_0
+  21.006                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un123_sum_ADD_20x20_fast_I101_Y:B (r)
+               +     0.604          cell: ADLIB:XOR2
+  21.610                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un123_sum_ADD_20x20_fast_I101_Y:Y (r)
+               +     0.294          net: hbridgecontroller_0/mult1_un123_sum[17]
+  21.904                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un130_sum_ADD_20x20_fast_I78_Y:C (r)
+               +     0.362          cell: ADLIB:OA1
+  22.266                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un130_sum_ADD_20x20_fast_I78_Y:Y (r)
+               +     1.475          net: hbridgecontroller_0/N366
+  23.741                       hbridgecontroller_0/PRDATA_1_RNO[0]:B (r)
+               +     0.533          cell: ADLIB:MX2
+  24.274                       hbridgecontroller_0/PRDATA_1_RNO[0]:Y (r)
+               +     0.334          net: hbridgecontroller_0/PRDATA_7[0]
+  24.608                       hbridgecontroller_0/PRDATA_1[0]:D (r)
+                                    
+  24.608                       data arrival time
+  ________________________________________________________
+  Data required time calculation
+  10.000                       mss_ccc_gla1
+               +     0.000          Clock source
+  10.000                       smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA (r)
+               +     4.630          Clock generation
+  14.630
+               +     0.000          net: smartfusionmss_0/MSS_CCC_0/I_MSSCCC/GLA_INT
+  14.630                       smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
+               +     0.000          cell: ADLIB:MSS_CCC_GL_IF
+  14.630                       smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
+               +     0.588          net: FAB_CLK
+  15.218                       hbridgecontroller_0/PRDATA_1[0]:CLK (r)
+               -     0.490          Library setup time: ADLIB:DFN1E0
+  14.728                       hbridgecontroller_0/PRDATA_1[0]:D
+                                    
+  14.728                       data required time
+
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Setup
+
+No Path
+
+END SET External Setup
+
+----------------------------------------------------
+
+SET Clock to Output
+
+Path 1
+  From:                  hbridgecontroller_0/motor2_ctrl[1]:CLK
+  To:                    motor2_ctrl[1]
+  Delay (ns):            6.749
+  Slack (ns):
+  Arrival (ns):          11.977
+  Required (ns):
+  Clock to Out (ns):     11.977
+
+Path 2
+  From:                  hbridgecontroller_0/motor2_ctrl[0]:CLK
+  To:                    motor2_ctrl[0]
+  Delay (ns):            6.651
+  Slack (ns):
+  Arrival (ns):          11.886
+  Required (ns):
+  Clock to Out (ns):     11.886
+
+Path 3
+  From:                  hbridgecontroller_0/motor1_ctrl[1]:CLK
+  To:                    motor1_ctrl[1]
+  Delay (ns):            6.340
+  Slack (ns):
+  Arrival (ns):          11.563
+  Required (ns):
+  Clock to Out (ns):     11.563
+
+Path 4
+  From:                  hbridgecontroller_0/motor1_ctrl[0]:CLK
+  To:                    motor1_ctrl[0]
+  Delay (ns):            6.256
+  Slack (ns):
+  Arrival (ns):          11.484
+  Required (ns):
+  Clock to Out (ns):     11.484
+
+Path 5
+  From:                  hbridgecontroller_0/motor1_pwm:CLK
+  To:                    motor1_pwm
+  Delay (ns):            4.876
+  Slack (ns):
+  Arrival (ns):          10.109
+  Required (ns):
+  Clock to Out (ns):     10.109
+
+
+Expanded Path 1
+  From: hbridgecontroller_0/motor2_ctrl[1]:CLK
+  To: motor2_ctrl[1]
+  data required time                             N/C
+  data arrival time                          -   11.977
+  slack                                          N/C
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        mss_ccc_gla1
+               +     0.000          Clock source
+  0.000                        smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA (r)
+               +     4.630          Clock generation
+  4.630
+               +     0.000          net: smartfusionmss_0/MSS_CCC_0/I_MSSCCC/GLA_INT
+  4.630                        smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
+               +     0.000          cell: ADLIB:MSS_CCC_GL_IF
+  4.630                        smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
+               +     0.598          net: FAB_CLK
+  5.228                        hbridgecontroller_0/motor2_ctrl[1]:CLK (r)
+               +     0.671          cell: ADLIB:DFN1E0
+  5.899                        hbridgecontroller_0/motor2_ctrl[1]:Q (f)
+               +     2.179          net: motor2_ctrl_c[1]
+  8.078                        motor2_ctrl_pad[1]/U0/U1:D (f)
+               +     0.530          cell: ADLIB:IOTRI_OB_EB
+  8.608                        motor2_ctrl_pad[1]/U0/U1:DOUT (f)
+               +     0.000          net: motor2_ctrl_pad[1]/U0/NET1
+  8.608                        motor2_ctrl_pad[1]/U0/U0:D (f)
+               +     3.369          cell: ADLIB:IOPAD_TRI
+  11.977                       motor2_ctrl_pad[1]/U0/U0:PAD (f)
+               +     0.000          net: motor2_ctrl[1]
+  11.977                       motor2_ctrl[1] (f)
+                                    
+  11.977                       data arrival time
+  ________________________________________________________
+  Data required time calculation
+  N/C                          mss_ccc_gla1
+               +     0.000          Clock source
+  N/C                          smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA (r)
+               +     4.630          Clock generation
+  N/C
+                                    
+  N/C                          motor2_ctrl[1] (f)
+
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Recovery
+
+No Path
+
+END SET External Recovery
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+SET mss_ccc_gla0 to mss_ccc_gla1
+
+Path 1
+  From:                  smartfusionmss_0/MSS_ADLIB_INST/U_CORE:FCLK
+  To:                    hbridgecontroller_0/PRDATA_1[0]:D
+  Delay (ns):            23.520
+  Slack (ns):            -12.347
+  Arrival (ns):          27.075
+  Required (ns):         14.728
+  Setup (ns):            0.490
+
+Path 2
+  From:                  smartfusionmss_0/MSS_ADLIB_INST/U_CORE:FCLK
+  To:                    hbridgecontroller_0/M1_duty[9]:D
+  Delay (ns):            12.594
+  Slack (ns):            -1.346
+  Arrival (ns):          16.149
+  Required (ns):         14.803
+  Setup (ns):            0.490
+
+Path 3
+  From:                  smartfusionmss_0/MSS_ADLIB_INST/U_CORE:FCLK
+  To:                    hbridgecontroller_0/M1_duty[14]:D
+  Delay (ns):            12.367
+  Slack (ns):            -1.168
+  Arrival (ns):          15.922
+  Required (ns):         14.754
+  Setup (ns):            0.490
+
+Path 4
+  From:                  smartfusionmss_0/MSS_ADLIB_INST/U_CORE:FCLK
+  To:                    hbridgecontroller_0/M1_duty_0[14]:D
+  Delay (ns):            12.367
+  Slack (ns):            -1.127
+  Arrival (ns):          15.922
+  Required (ns):         14.795
+  Setup (ns):            0.490
+
+Path 5
+  From:                  smartfusionmss_0/MSS_ADLIB_INST/U_CORE:FCLK
+  To:                    hbridgecontroller_0/M1_duty[8]:D
+  Delay (ns):            12.232
+  Slack (ns):            -1.049
+  Arrival (ns):          15.787
+  Required (ns):         14.738
+  Setup (ns):            0.490
+
+
+Expanded Path 1
+  From: smartfusionmss_0/MSS_ADLIB_INST/U_CORE:FCLK
+  To: hbridgecontroller_0/PRDATA_1[0]:D
+  data required time                             14.728
+  data arrival time                          -   27.075
+  slack                                          -12.347
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        mss_ccc_gla0
+               +     0.000          Clock source
+  0.000                        smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLAMSS (r)
+               +     2.925          Clock generation
+  2.925
+               +     0.630          net: smartfusionmss_0/GLA0
+  3.555                        smartfusionmss_0/MSS_ADLIB_INST/U_CORE:FCLK (r)
+               +     3.632          cell: ADLIB:MSS_APB_IP
+  7.187                        smartfusionmss_0/MSS_ADLIB_INST/U_CORE:M2FRESETn (r)
+               +     0.122          net: smartfusionmss_0/MSS_ADLIB_INST/M2FRESETnINT_NET
+  7.309                        smartfusionmss_0/MSS_ADLIB_INST/U_46:PIN2INT (r)
+               +     0.095          cell: ADLIB:MSS_IF
+  7.404                        smartfusionmss_0/MSS_ADLIB_INST/U_46:PIN2 (r)
+               +     2.625          net: smartfusionmss_0/MSS_ADLIB_INST_M2FRESETn
+  10.029                       smartfusionmss_0/MSS_ADLIB_INST_RNIMS87/U_CLKSRC:A (r)
+               +     0.699          cell: ADLIB:CLKSRC
+  10.728                       smartfusionmss_0/MSS_ADLIB_INST_RNIMS87/U_CLKSRC:Y (r)
+               +     0.630          net: smartfusionmss_0_M2F_RESET_N
+  11.358                       hbridgecontroller_0/M2_duty_RNIA8UJ[11]:B (r)
+               +     0.470          cell: ADLIB:NOR2B
+  11.828                       hbridgecontroller_0/M2_duty_RNIA8UJ[11]:Y (r)
+               +     1.639          net: hbridgecontroller_0/M2_duty_2[11]
+  13.467                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un102_sum_ADD_20x20_fast_I92_Y:B (r)
+               +     0.859          cell: ADLIB:AX1D
+  14.326                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un102_sum_ADD_20x20_fast_I92_Y:Y (r)
+               +     0.452          net: hbridgecontroller_0/mult1_un102_sum_0[8]
+  14.778                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un109_sum_ADD_20x20_fast_I82_un1_Y_0:B (r)
+               +     0.652          cell: ADLIB:NOR3B
+  15.430                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un109_sum_ADD_20x20_fast_I82_un1_Y_0:Y (r)
+               +     0.320          net: hbridgecontroller_0/I73_un1_Y_0
+  15.750                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un109_sum_ADD_20x20_fast_I70_Y_tz_0:C (r)
+               +     0.622          cell: ADLIB:OR3
+  16.372                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un109_sum_ADD_20x20_fast_I70_Y_tz_0:Y (r)
+               +     0.851          net: hbridgecontroller_0/ADD_20x20_fast_I70_Y_tz_0_0
+  17.223                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un109_sum_ADD_20x20_fast_I70_Y_tz:C (r)
+               +     0.584          cell: ADLIB:OR3
+  17.807                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un109_sum_ADD_20x20_fast_I70_Y_tz:Y (r)
+               +     0.886          net: hbridgecontroller_0/N374_tz_0
+  18.693                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un109_sum_ADD_20x20_fast_I70_Y:C (r)
+               +     0.683          cell: ADLIB:NOR3C
+  19.376                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un109_sum_ADD_20x20_fast_I70_Y:Y (r)
+               +     0.369          net: hbridgecontroller_0/N376_1
+  19.745                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un109_sum_ADD_20x20_fast_I98_Y:C (r)
+               +     0.897          cell: ADLIB:XOR3
+  20.642                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un109_sum_ADD_20x20_fast_I98_Y:Y (f)
+               +     1.042          net: hbridgecontroller_0/mult1_un109_sum[14]
+  21.684                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un116_sum_ADD_20x20_fast_I99_Y:A (f)
+               +     0.372          cell: ADLIB:XOR2
+  22.056                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un116_sum_ADD_20x20_fast_I99_Y:Y (f)
+               +     0.296          net: hbridgecontroller_0/mult1_un116_sum_0[15]
+  22.352                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un123_sum_ADD_20x20_fast_I80_Y:C (f)
+               +     0.576          cell: ADLIB:AO1
+  22.928                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un123_sum_ADD_20x20_fast_I80_Y:Y (f)
+               +     0.296          net: hbridgecontroller_0/N370_0
+  23.224                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un123_sum_ADD_20x20_fast_I101_Y:B (f)
+               +     0.853          cell: ADLIB:XOR2
+  24.077                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un123_sum_ADD_20x20_fast_I101_Y:Y (r)
+               +     0.294          net: hbridgecontroller_0/mult1_un123_sum[17]
+  24.371                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un130_sum_ADD_20x20_fast_I78_Y:C (r)
+               +     0.362          cell: ADLIB:OA1
+  24.733                       hbridgecontroller_0/PRDATA_3_if_generate_plus.mult1_un130_sum_ADD_20x20_fast_I78_Y:Y (r)
+               +     1.475          net: hbridgecontroller_0/N366
+  26.208                       hbridgecontroller_0/PRDATA_1_RNO[0]:B (r)
+               +     0.533          cell: ADLIB:MX2
+  26.741                       hbridgecontroller_0/PRDATA_1_RNO[0]:Y (r)
+               +     0.334          net: hbridgecontroller_0/PRDATA_7[0]
+  27.075                       hbridgecontroller_0/PRDATA_1[0]:D (r)
+                                    
+  27.075                       data arrival time
+  ________________________________________________________
+  Data required time calculation
+  10.000                       mss_ccc_gla1
+               +     0.000          Clock source
+  10.000                       smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA (r)
+               +     4.630          Clock generation
+  14.630
+               +     0.000          net: smartfusionmss_0/MSS_CCC_0/I_MSSCCC/GLA_INT
+  14.630                       smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
+               +     0.000          cell: ADLIB:MSS_CCC_GL_IF
+  14.630                       smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
+               +     0.588          net: FAB_CLK
+  15.218                       hbridgecontroller_0/PRDATA_1[0]:CLK (r)
+               -     0.490          Library setup time: ADLIB:DFN1E0
+  14.728                       hbridgecontroller_0/PRDATA_1[0]:D
+                                    
+  14.728                       data required time
+
+
+END SET mss_ccc_gla0 to mss_ccc_gla1
+
+----------------------------------------------------
+
+SET mss_fabric_interface_clock to mss_ccc_gla1
+
+Path 1
+  From:                  smartfusionmss_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                    hbridgecontroller_0/M2_duty[2]:D
+  Delay (ns):            28.342
+  Slack (ns):            -17.164
+  Arrival (ns):          31.897
+  Required (ns):         14.733
+  Setup (ns):            0.522
+
+Path 2
+  From:                  smartfusionmss_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                    hbridgecontroller_0/M2_duty_0[14]:D
+  Delay (ns):            28.321
+  Slack (ns):            -17.143
+  Arrival (ns):          31.876
+  Required (ns):         14.733
+  Setup (ns):            0.522
+
+Path 3
+  From:                  smartfusionmss_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                    hbridgecontroller_0/M2_duty[14]:D
+  Delay (ns):            28.321
+  Slack (ns):            -17.143
+  Arrival (ns):          31.876
+  Required (ns):         14.733
+  Setup (ns):            0.522
+
+Path 4
+  From:                  smartfusionmss_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                    hbridgecontroller_0/M2_duty[7]:D
+  Delay (ns):            28.350
+  Slack (ns):            -17.142
+  Arrival (ns):          31.905
+  Required (ns):         14.763
+  Setup (ns):            0.522
+
+Path 5
+  From:                  smartfusionmss_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                    hbridgecontroller_0/M2_duty[4]:D
+  Delay (ns):            28.304
+  Slack (ns):            -17.126
+  Arrival (ns):          31.859
+  Required (ns):         14.733
+  Setup (ns):            0.522
+
+
+Expanded Path 1
+  From: smartfusionmss_0/MSS_ADLIB_INST/U_CORE:GLB
+  To: hbridgecontroller_0/M2_duty[2]:D
+  data required time                             14.733
+  data arrival time                          -   31.897
+  slack                                          -17.164
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        mss_fabric_interface_clock
+               +     0.000          Clock source
+  0.000                        smartfusionmss_0/MSS_ADLIB_INST/U_CORE:GLB (r)
+               +     3.555          Clock generation
+  3.555
+               +     3.470          cell: ADLIB:MSS_APB_IP
+  7.025                        smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSPWDATA[9] (r)
+               +     0.125          net: smartfusionmss_0/MSS_ADLIB_INST/MSSPWDATA[9]INT_NET
+  7.150                        smartfusionmss_0/MSS_ADLIB_INST/U_39:PIN3INT (r)
+               +     0.086          cell: ADLIB:MSS_IF
+  7.236                        smartfusionmss_0/MSS_ADLIB_INST/U_39:PIN3 (r)
+               +     4.058          net: CoreAPB3_0_APBmslave0_PWDATA[9]
+  11.294                       hbridgecontroller_0/un7_M1_duty_0_218:B (r)
+               +     0.604          cell: ADLIB:XOR2
+  11.898                       hbridgecontroller_0/un7_M1_duty_0_218:Y (r)
+               +     0.432          net: hbridgecontroller_0/N_670
+  12.330                       hbridgecontroller_0/un7_M1_duty_0_227_0:A (r)
+               +     0.895          cell: ADLIB:OA1
+  13.225                       hbridgecontroller_0/un7_M1_duty_0_227_0:Y (r)
+               +     0.294          net: hbridgecontroller_0/un7_M1_duty_0_227_0
+  13.519                       hbridgecontroller_0/un7_M1_duty_0_227:A (r)
+               +     0.331          cell: ADLIB:OR2
+  13.850                       hbridgecontroller_0/un7_M1_duty_0_227:Y (r)
+               +     1.030          net: hbridgecontroller_0/N_673
+  14.880                       hbridgecontroller_0/un7_M1_duty_0_239:B (r)
+               +     0.850          cell: ADLIB:MAJ3
+  15.730                       hbridgecontroller_0/un7_M1_duty_0_239:Y (r)
+               +     1.270          net: hbridgecontroller_0/N_679
+  17.000                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I15_P0N:B (r)
+               +     0.468          cell: ADLIB:OR2
+  17.468                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I15_P0N:Y (r)
+               +     0.351          net: hbridgecontroller_0/N362
+  17.819                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I25_Y:B (r)
+               +     0.538          cell: ADLIB:NOR2B
+  18.357                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I25_Y:Y (r)
+               +     0.403          net: hbridgecontroller_0/N380
+  18.760                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I64_Y:B (r)
+               +     0.538          cell: ADLIB:NOR2B
+  19.298                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I64_Y:Y (r)
+               +     0.743          net: hbridgecontroller_0/N429
+  20.041                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I143_un1_Y:B (r)
+               +     0.652          cell: ADLIB:NOR3C
+  20.693                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I143_un1_Y:Y (r)
+               +     0.306          net: hbridgecontroller_0/I143_un1_Y
+  20.999                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I143_Y_2:C (r)
+               +     0.622          cell: ADLIB:OR3
+  21.621                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I143_Y_2:Y (r)
+               +     0.296          net: hbridgecontroller_0/ADD_24x24_fast_I143_Y_2
+  21.917                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I218_Y_0:B (r)
+               +     0.859          cell: ADLIB:AX1D
+  22.776                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I218_Y_0:Y (r)
+               +     1.038          net: hbridgecontroller_0/ADD_24x24_fast_I218_Y_0
+  23.814                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I218_Y:A (r)
+               +     0.414          cell: ADLIB:XOR2
+  24.228                       hbridgecontroller_0/un7_M1_duty_0_253_ADD_24x24_fast_I218_Y:Y (f)
+               +     0.282          net: hbridgecontroller_0/un7_M1_duty[25]
+  24.510                       hbridgecontroller_0/M1_duty24lto23_0:C (f)
+               +     0.446          cell: ADLIB:XO1
+  24.956                       hbridgecontroller_0/M1_duty24lto23_0:Y (f)
+               +     0.306          net: hbridgecontroller_0/M1_duty24lto23_0
+  25.262                       hbridgecontroller_0/M1_duty24lto23_3:C (f)
+               +     0.642          cell: ADLIB:AO1
+  25.904                       hbridgecontroller_0/M1_duty24lto23_3:Y (f)
+               +     1.319          net: hbridgecontroller_0/M1_duty24lto23_3
+  27.223                       hbridgecontroller_0/M1_duty24lto23:B (f)
+               +     0.588          cell: ADLIB:OR2
+  27.811                       hbridgecontroller_0/M1_duty24lto23:Y (f)
+               +     1.394          net: hbridgecontroller_0/M1_duty24
+  29.205                       hbridgecontroller_0/M2_duty_5_sn_m1:A (f)
+               +     0.351          cell: ADLIB:NOR2B
+  29.556                       hbridgecontroller_0/M2_duty_5_sn_m1:Y (f)
+               +     1.600          net: hbridgecontroller_0/M2_duty_5_sn_N_2
+  31.156                       hbridgecontroller_0/M2_duty_RNO[2]:B (f)
+               +     0.445          cell: ADLIB:NOR2A
+  31.601                       hbridgecontroller_0/M2_duty_RNO[2]:Y (r)
+               +     0.296          net: hbridgecontroller_0/M2_duty_5[2]
+  31.897                       hbridgecontroller_0/M2_duty[2]:D (r)
+                                    
+  31.897                       data arrival time
+  ________________________________________________________
+  Data required time calculation
+  10.000                       mss_ccc_gla1
+               +     0.000          Clock source
+  10.000                       smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA (r)
+               +     4.630          Clock generation
+  14.630
+               +     0.000          net: smartfusionmss_0/MSS_CCC_0/I_MSSCCC/GLA_INT
+  14.630                       smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
+               +     0.000          cell: ADLIB:MSS_CCC_GL_IF
+  14.630                       smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
+               +     0.625          net: FAB_CLK
+  15.255                       hbridgecontroller_0/M2_duty[2]:CLK (r)
+               -     0.522          Library setup time: ADLIB:DFN1
+  14.733                       hbridgecontroller_0/M2_duty[2]:D
+                                    
+  14.733                       data required time
+
+
+END SET mss_fabric_interface_clock to mss_ccc_gla1
+
+----------------------------------------------------
+
+Clock Domain mss_ccc_gla0
+
+Info: The maximum frequency of this clock domain is limited by the period of pin smartfusionmss_0/MSS_ADLIB_INST/U_CORE:FCLK
+
+SET Register to Register
+
+No Path
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Setup
+
+Path 1
+  From:                  MSS_RESET_N
+  To:                    smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSRESETn
+  Delay (ns):            0.937
+  Slack (ns):
+  Arrival (ns):          0.937
+  Required (ns):
+  Setup (ns):            -2.196
+  External Setup (ns):   -4.814
+
+
+Expanded Path 1
+  From: MSS_RESET_N
+  To: smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSRESETn
+  data required time                             N/C
+  data arrival time                          -   0.937
+  slack                                          N/C
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        MSS_RESET_N (r)
+               +     0.000          net: MSS_RESET_N
+  0.000                        smartfusionmss_0/MSS_RESET_0_MSS_RESET_N:PAD (r)
+               +     0.937          cell: ADLIB:IOPAD_IN
+  0.937                        smartfusionmss_0/MSS_RESET_0_MSS_RESET_N:Y (r)
+               +     0.000          net: smartfusionmss_0/MSS_RESET_0_MSS_RESET_N_Y
+  0.937                        smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSRESETn (r)
+                                    
+  0.937                        data arrival time
+  ________________________________________________________
+  Data required time calculation
+  N/C                          mss_ccc_gla0
+               +     0.000          Clock source
+  N/C                          smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLAMSS (r)
+               +     2.925          Clock generation
+  N/C
+               +     0.630          net: smartfusionmss_0/GLA0
+  N/C                          smartfusionmss_0/MSS_ADLIB_INST/U_CORE:FCLK (r)
+               -    -2.196          Library setup time: ADLIB:MSS_APB_IP
+  N/C                          smartfusionmss_0/MSS_ADLIB_INST/U_CORE:MSSRESETn
+
+
+END SET External Setup
+
+----------------------------------------------------
+
+SET Clock to Output
+
+Path 1
+  From:                  smartfusionmss_0/MSS_ADLIB_INST/U_CORE:FCLK
+  To:                    SPI_1_FAB_SS[1]
+  Delay (ns):            10.246
+  Slack (ns):
+  Arrival (ns):          13.801
+  Required (ns):
+  Clock to Out (ns):     13.801
+
+
+Expanded Path 1
+  From: smartfusionmss_0/MSS_ADLIB_INST/U_CORE:FCLK
+  To: SPI_1_FAB_SS[1]
+  data required time                             N/C
+  data arrival time                          -   13.801
+  slack                                          N/C
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        mss_ccc_gla0
+               +     0.000          Clock source
+  0.000                        smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLAMSS (r)
+               +     2.925          Clock generation
+  2.925
+               +     0.630          net: smartfusionmss_0/GLA0
+  3.555                        smartfusionmss_0/MSS_ADLIB_INST/U_CORE:FCLK (r)
+               +     5.407          cell: ADLIB:MSS_APB_IP
+  8.962                        smartfusionmss_0/MSS_ADLIB_INST/U_CORE:SPI1SSO[1] (f)
+               +     0.000          net: smartfusionmss_0/MSS_ADLIB_INST/SPI1SSO[1]INT_NET
+  8.962                        smartfusionmss_0/MSS_ADLIB_INST/U_9:PIN1INT (f)
+               +     0.088          cell: ADLIB:MSS_IF
+  9.050                        smartfusionmss_0/MSS_ADLIB_INST/U_9:PIN1 (f)
+               +     0.782          net: SPI_1_FAB_SS_c[1]
+  9.832                        SPI_1_FAB_SS_pad[1]/U0/U1:D (f)
+               +     0.600          cell: ADLIB:IOTRI_OB_EB
+  10.432                       SPI_1_FAB_SS_pad[1]/U0/U1:DOUT (f)
+               +     0.000          net: SPI_1_FAB_SS_pad[1]/U0/NET1
+  10.432                       SPI_1_FAB_SS_pad[1]/U0/U0:D (f)
+               +     3.369          cell: ADLIB:IOPAD_TRI
+  13.801                       SPI_1_FAB_SS_pad[1]/U0/U0:PAD (f)
+               +     0.000          net: SPI_1_FAB_SS[1]
+  13.801                       SPI_1_FAB_SS[1] (f)
+                                    
+  13.801                       data arrival time
+  ________________________________________________________
+  Data required time calculation
+  N/C                          mss_ccc_gla0
+               +     0.000          Clock source
+  N/C                          smartfusionmss_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLAMSS (r)
+               +     2.925          Clock generation
+  N/C
+                                    
+  N/C                          SPI_1_FAB_SS[1] (f)
+
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Recovery
+
+No Path
+
+END SET External Recovery
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Clock Domain smartfusionmss_0/MSS_CCC_0/I_RCOSC:CLKOUT
+
+SET Register to Register
+
+No Path
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Setup
+
+No Path
+
+END SET External Setup
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Recovery
+
+No Path
+
+END SET External Recovery
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Path set Pin to Pin
+
+SET Input to Output
+
+No Path
+
+END SET Input to Output
+
+----------------------------------------------------
+
+Path set User Sets
+
